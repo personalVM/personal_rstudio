@@ -6,7 +6,7 @@ img_tag=${2:-personal_rstudio_img:v20241020}  # Second argument: Image tag (defa
 container_name=${3:-personal_rstudio_ctn}  # Third argument: Container name (default: personal_rstudio_ctn)
 password=${4:-minhasenha}  # Fourth argument: RStudio password (default: minhasenha)
 port=${5:-8787}  # Fifth argument: Port (default: 8787)
-volume_dir=${6:-$(pwd)/volume}  # Sixth argument: Volume directory (default: current directory/volume)
+volume_dir=${6:-$(pwd)/personal_rstudio}  # Sixth argument: Volume directory (default: current directory/volume)
 
 # Step 1: Build the Docker image
 sudo docker build -t "$img_tag" -f "$dockerfile" .
