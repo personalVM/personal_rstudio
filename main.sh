@@ -18,4 +18,4 @@ img_id=$(sudo docker inspect "$img_tag" --format '{{ .ID }}' | cut -f2- -d:)
 sudo docker run -d -e PASSWORD="$password" -p "$port":8787 -v "$volume_dir":/home/rstudio/volume --name="$container_name" "$img_id"
 
 # Step 4: List running containers
-docker ps
+sudo docker ps
