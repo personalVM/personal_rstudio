@@ -1,8 +1,22 @@
-sudo docker build -t personal_rstudio_img:v20241020 -f rstudio.Dockerfile .
-# sudo docker images
-sudo docker inspect personal_rstudio_img:v20241020 --format '{{ .ID }}' | cut -f2- -d:
-personal_rstudio_img_id=$(sudo docker inspect personal_rstudio_img:v20241020 --format '{{ .ID }}' | cut -f2- -d:)
-sudo docker run -d -e PASSWORD=minhasenha -p 8787:8787 -v $(pwd)/volume/:/home/rstudio/volume --name=personal_rstudio_ctn4 $personal_rstudio_img_id
-docker ps
 
+function build_and_run_rstudio() {
+    local dockerfile=${1:-rstudio.Dockerfile}  # First argument: Dockerfile (default: rstudio.Dockerfile)
+    local img_tag=${2:-personal_rstudio_img:v20241020}  # Second argument: Image tag (default: personal_rstudio_img:v20241020)
+    local container_name=${3:-personal_rstudio_ctn}  # Third argument: Container name (default: personal_rstudio_ctn)
+    local password=${4:-minhasenha}  # Fourth argument: RStudio password (default: minhasenha)
+    local port=${5:-8787}  # Fifth argument: Port (default: 8787)
+    local volume_dir=${6:-$(pwd)/volume}  # Sixth argument: Volume directory (default: current directory/volume)
+
+    # Step 1: Build the Docker image
+    sudo docker build -t "$img_tag" -f "$dockerfile" .
+
+    # Step 2: Get the image ID of the newly built image
+    local img_id=$(sudo docker inspect "$img_tag" --format '{{ .ID }}' | cut -f2- -d:)
+
+    # Step 3: Run a Docker container with the specified image
+    sudo docker run -d -e PASSWORD="$password" -p "$port":8787 -v "$volume_dir":/home/rstudio/volume --name="$container_name" "$img_id"
+
+    # Step 4: List running containers
+    docker ps
+}
 
