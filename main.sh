@@ -20,3 +20,5 @@ function build_and_run_rstudio() {
     docker ps
 }
 
+# Call the function with arguments passed to the script
+build_and_run_rstudio "$@"
