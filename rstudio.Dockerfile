@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
     libudunits2-dev \
     libgdal-dev
 
-VOLUME my_data
+VOLUME volume
 
 # basic R packages
 # RUN R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cloud.r-project.org/')" # main libs
