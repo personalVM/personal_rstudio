@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Arguments with default values
-dockerfile=${1:-rstudio.Dockerfile}  # First argument: Dockerfile (default: rstudio.Dockerfile)
+dockerfile=${1:-/home/guilhermeviegas1993/personal_rstudio/rstudio.Dockerfile}  # First argument: Dockerfile (default: rstudio.Dockerfile)
 img_tag=${2:-personal_rstudio_img:v20241020}  # Second argument: Image tag (default: personal_rstudio_img:v20241020)
 container_name=${3:-personal_rstudio_ctn4}  # Third argument: Container name (default: personal_rstudio_ctn4)
 password=${4:-minhasenha}  # Fourth argument: RStudio password (default: minhasenha)
