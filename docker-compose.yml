@@ -1,12 +1,15 @@
 version: '3'
 services:  
   personal_rstudio:
+    build: 
+      context: .
+      dockerfile: rstudio.Dockerfile
     image: ${img_id}
     container_name: personal_rstudio
     volumes:            
       - /home/guilhermeviegas1993/:/home/rstudio/volume/
     ports:
-      - "8787:8787"
+      - "8787:8787"      
     environment:  # Set environment variables
       - ROOT=true
       - USER=rstudio
