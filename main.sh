@@ -30,8 +30,10 @@ sudo docker build -t personal_rstudio_img:v20241020 -f /home/guilhermeviegas1993
 img_id=$(sudo docker inspect personal_rstudio_img:v20241020 --format '{{ .ID }}' | cut -f2- -d:)
 
 # Step 3: Run a Docker container with the specified image
-sudo docker run -d -e PASSWORD="$password" -p 8787:8787 -v /home/guilhermeviegas1993/:/home/rstudio/ --name=personal_rstudio_ctn "$img_id"
-sudo docker run -d -e PASSWORD=minhasenha -p 8787:8787 -v $(pwd)/:/home/rstudio/ --name=personal_rstudio_ctn "$img_id"
+# sudo docker run -d -e PASSWORD="$password" -p 8787:8787 -v /home/guilhermeviegas1993/:/home/rstudio/ --name=personal_rstudio_ctn "$img_id"
+# sudo docker run -d -e PASSWORD=minhasenha -p 8787:8787 -v $(pwd)/:/home/rstudio/ --name=personal_rstudio_ctn "$img_id"
+
+sudo docker-compose up -d --build
 
 # Step 4: List running containers
 sudo docker ps

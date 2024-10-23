@@ -1,7 +1,7 @@
 version: '3'
 services:  
   my-service:    
-    image: e64a771c0f23
+    image: $img_id
     volumes:            
       - /home/guilhermeviegas1993/:/home/rstudio/volume/
     ports:
