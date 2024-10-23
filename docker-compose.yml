@@ -5,6 +5,3 @@ services:
     volumes:      
       - /home/guilhermeviegas1993/:/home/rstudio/
 
-volumes:  
-  my-volume:
-
