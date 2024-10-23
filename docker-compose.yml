@@ -1,7 +1,7 @@
 version: '3'
 services:  
-  my-service:    
-    image: $img_id
+  personal_rstudio:
+    image: ${img_id}
     container_name: personal_rstudio
     volumes:            
       - /home/guilhermeviegas1993/:/home/rstudio/volume/
@@ -13,5 +13,4 @@ services:
       - PASSWORD=rstudio
     user: root
     restart: unless-stopped
-
 
