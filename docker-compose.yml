@@ -4,8 +4,6 @@ services:
     image: e64a771c0f23
     volumes:            
       - /home/guilhermeviegas1993/:/home/rstudio/volume/
-    working_dir: 
-      - /home/rstudio/volume/
     ports:
       - "8787:8787"
     environment:
