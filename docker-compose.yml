@@ -2,10 +2,9 @@ version: '3'
 services:  
   my-service:    
     image: e64a771c0f23
-    volumes:      
-      - /home/guilhermeviegas1993/:/home/rstudio/
+    volumes:            
+      - /home/guilhermeviegas1993/personal_rstudio/:/home/rstudio/volume/
     ports:
-      - "8080:80"
       - "8787:8787"
     environment:
       - PASSWORD=minhasenha
