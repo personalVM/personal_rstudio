@@ -9,10 +9,12 @@ services:
       - /home/guilhermeviegas1993/:/home/rstudio/volume/
     ports:
       - "8787:8787"      
-    environment:  # Set environment variables
+    environment:
       - ROOT=true
       - USER=rstudio
-      - PASSWORD=rstudio
+      - PASSWORD=${R_PASS}
     user: root
     restart: unless-stopped
+
+
 
