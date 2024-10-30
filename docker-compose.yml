@@ -1,21 +1,18 @@
 version: '3'
-services:
+services:  
   personal_rstudio:
-    build:
+    build: 
       context: .
       dockerfile: rstudio.Dockerfile
-    user: "guilhermeviegas1993:guilhermeviegas1993"
     container_name: personal_rstudio
-    volumes:
-      - /home/guilhermeviegas1993/:/home/guilhermeviegas1993/volume/
+    volumes:            
+      - /home/guilhermeviegas1993/:/home/rstudio/volume/
     ports:
-      - "8787:8787"
-    environment:
+      - "8787:8787"      
+    environment:  # Set environment variables
       - ROOT=true
       - USER=rstudio
-      - PASSWORD=${R_PASS}
-      - USER_ID=${USER_ID}
-      - GROUP_ID=${GROUP_ID}
+      - PASSWORD=rstudio
     user: root
     restart: unless-stopped
 
