@@ -4,10 +4,10 @@ services:
     build:
       context: .
       dockerfile: rstudio.Dockerfile
-    user: "${USER_ID}:${GROUP_ID}"
+    user: "guilhermeviegas1993:guilhermeviegas1993"
     container_name: personal_rstudio
     volumes:
-      - /home/guilhermeviegas1993/:/home/${USER_ID}/volume/
+      - /home/guilhermeviegas1993/:/home/guilhermeviegas1993/volume/
     ports:
       - "8787:8787"
     environment:
