@@ -1,10 +1,10 @@
 version: '3'
 services:  
-  personal_rstudio:
+  ide_service:
     build: 
       context: .
       dockerfile: rstudio.Dockerfile
-    container_name: personal_rstudio
+    container_name: ide_service
     volumes:            
       - /home/guilhermeviegas1993/:/home/rstudio/volume/
     ports:
