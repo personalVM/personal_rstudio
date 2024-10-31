@@ -3,7 +3,8 @@ FROM rocker/geospatial
 LABEL mantainer=guilhermeviegas1993@gmail.com
 
 # system dependencies
-RUN apt update && apt install -y 
+RUN apt update -y
+RUN apt install -y 
     #\
     # sudo \
     # pandoc \
