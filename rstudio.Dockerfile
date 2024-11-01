@@ -23,6 +23,12 @@ RUN apt install -y
     
 VOLUME /home/rstudio/
 
+RUN R -e "install.packages('janitor')"
+RUN R -e "install.packages('rio')"
+
+
+
+
 # basic R packages
 # RUN R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cloud.r-project.org/')" # main libs
 # RUN R -e "install.packages(c('XML', 'devtools', 'bit64', 'xtable'))" # dev libs
