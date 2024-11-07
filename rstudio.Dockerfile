@@ -27,6 +27,12 @@ RUN R -e "install.packages('janitor')"
 RUN R -e "install.packages('rio')"
 RUN R -e "install.packages('styler')"
 
+# HSAR package:
+RUN curl -o HSAR_0_5_1.tar.gz https://cran.r-project.org/src/contrib/Archive/HSAR/HSAR_0.5.1.tar.gz
+RUN mkdir -p HSAR
+RUN tar -xzvf HSAR_0_5_1.tar.gz -C .
+RUN R -e "install.packages('volume/HSAR/', repos = NULL, type = 'source')"
+
 
 # basic R packages
 # RUN R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cloud.r-project.org/')" # main libs
