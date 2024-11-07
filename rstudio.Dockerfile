@@ -25,8 +25,7 @@ VOLUME /home/rstudio/
 
 RUN R -e "install.packages('janitor')"
 RUN R -e "install.packages('rio')"
-
-
+RUN R -e "install.packages('styler')"
 
 
 # basic R packages
