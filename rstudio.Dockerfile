@@ -23,6 +23,9 @@ RUN apt install -y
     
 VOLUME /home/rstudio/
 
+RUN R -e "install.packages('Rcpp')"
+RUN R -e "install.packages('RcppArmadillo')"
+
 RUN R -e "install.packages('janitor')"
 RUN R -e "install.packages('rio')"
 RUN R -e "install.packages('styler')"
@@ -38,6 +41,7 @@ RUN tar -xzvf /home/rstudio/volume/HSAR_0_5_1.tar.gz -C /home/rstudio/volume/HSA
 RUN sudo chown -R rstudio:rstudio /home/rstudio/volume/HSAR/
 RUN sudo chmod -R 775 /home/rstudio/volume/HSAR/
 RUN R -e "install.packages('/home/rstudio/volume/HSAR/', repos = NULL, type = 'source')"
+
 
 # basic R packages
 # RUN R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cloud.r-project.org/')" # main libs
