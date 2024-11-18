@@ -31,12 +31,15 @@ RUN R -e "install.packages('rio')"
 RUN R -e "install.packages('styler')"
 
 # HSAR package:
-RUN pwd
 RUN curl -o /home/rstudio/HSAR_0_5_1.tar.gz https://cran.r-project.org/src/contrib/Archive/HSAR/HSAR_0.5.1.tar.gz
 RUN tar -xzvf /home/rstudio/HSAR_0_5_1.tar.gz -C /home/rstudio/
-RUN sudo chmod -R 775 /home/rstudio/HSAR/
-RUN sudo chown -R rstudio:rstudio /home/rstudio/HSAR/
+RUN sudo chmod -R 775 /home/rstudio/HSAR/ && sudo chown -R rstudio:rstudio /home/rstudio/HSAR/
 RUN R -e "install.packages('/home/rstudio/HSAR/', repos = NULL, type = 'source')"
+
+
+
+WORKDIR /home/rstudio/volume/
+
 # RUN curl -o /home/rstudio/volume/HSAR_0_5_1.tar.gz https://cran.r-project.org/src/contrib/Archive/HSAR/HSAR_0.5.1.tar.gz
 # RUN mkdir -p /home/rstudio/volume/HSAR
 # RUN tar -xzvf /home/rstudio/volume/HSAR_0_5_1.tar.gz -C /home/rstudio/volume/HSAR --strip-components=1
