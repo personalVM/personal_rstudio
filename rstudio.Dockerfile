@@ -30,6 +30,9 @@ RUN R -e "install.packages('janitor')"
 RUN R -e "install.packages('rio')"
 RUN R -e "install.packages('styler')"
 
+RUN R -e "install.packages('rnaturalearth')"
+
+
 # HSAR package:
 RUN curl -o /home/rstudio/HSAR_0_5_1.tar.gz https://cran.r-project.org/src/contrib/Archive/HSAR/HSAR_0.5.1.tar.gz
 RUN tar -xzvf /home/rstudio/HSAR_0_5_1.tar.gz -C /home/rstudio/
