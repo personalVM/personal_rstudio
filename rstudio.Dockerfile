@@ -29,6 +29,7 @@ RUN R -e "install.packages('RcppArmadillo')"
 RUN R -e "install.packages('janitor')"
 RUN R -e "install.packages('rio')"
 RUN R -e "install.packages('styler')"
+RUN R -e "install.packages('MLmetrics')"
 
 RUN R -e "install.packages('rnaturalearth')"
 
