@@ -14,7 +14,7 @@ services:
       - USER=rstudio
       - PASSWORD=${R_PASS}
     user: root
-    restart: unless-stopped
+    restart: on-failure
 
 
 
